@@ -53,6 +53,8 @@ export LESS_TERMCAP_us=$'\e[1;4;34m'
 
 alias dot='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
 alias ls='lsd --color=always'
+alias ll='ls -l'
+alias la='ls -a'
 alias grep='rg --color=always'
 alias cat='bat'
 

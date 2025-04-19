@@ -10,8 +10,8 @@
 	// "margin-bottom": 5,
   // "spacing": 4,
 
-	"modules-left": ["custom/menu", "cpu", "memory", "sway/scratchpad", "sway/window"],
-	"modules-center": ["sway/workspaces", "sway/mode"],
+	"modules-left": ["custom/menu", "cpu", "memory", "sway/window"],
+	"modules-center": ["sway/scratchpad", "sway/workspaces", "sway/mode"],
 	"modules-right": ["custom/weather", "custom/cmus", "sway/language", "pulseaudio", "battery", "backlight", "clock", "tray", "custom/power"],
 
 
@@ -44,7 +44,7 @@
 	"sway/workspaces": {
 	"disable-scroll": false,
 	"all-outputs": true,
-  "format": "{name}",
+  // "format": "{name}",
 	"format": "{icon}",
 	"format-icons": {
 		"1": "",
@@ -94,7 +94,7 @@
 
 	"custom/weather": {
 	"format": "{}",
-	"interval": 10,
+	"interval": 60,
 	"exec": "~/.local/bin/weather.sh",
 	"tooltip": false
 	},
