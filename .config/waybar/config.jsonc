@@ -12,7 +12,7 @@
 
 	"modules-left": ["custom/menu", "cpu", "memory", "sway/window"],
 	"modules-center": ["sway/scratchpad", "sway/workspaces", "sway/mode"],
-	"modules-right": ["custom/weather", "custom/cmus", "sway/language", "pulseaudio", "battery", "backlight", "clock", "tray", "custom/power"],
+	"modules-right": ["custom/cmus", "sway/language", "pulseaudio", "battery", "backlight", "clock", "tray", "custom/power"],
 
 
 	"cpu": {
@@ -92,12 +92,12 @@
 	"tooltip": false
 	},
 
-	"custom/weather": {
-	"format": "{}",
-	"interval": 60,
-	"exec": "~/.local/bin/weather.sh",
-	"tooltip": false
-	},
+	// "custom/weather": {
+	// "format": "{}",
+	// "interval": 60,
+	// "exec": "~/.local/bin/weather.sh",
+	// "tooltip": false
+	// },
 
 	"pulseaudio": {
 	"scroll-step": 5,
@@ -147,7 +147,7 @@
 	"custom/power": {
 	"format": "{icon}",
 	"format-icons": {"default": [""]},
-	"on-click": "~/.local/bin/power.sh",
+	"on-click": "nwg-bar",
 	"tooltip": false
 	},
 }
