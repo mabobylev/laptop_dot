@@ -51,7 +51,7 @@ export LESS_TERMCAP_so=$'\e[01;34m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;34m'
 
-alias dot='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
+alias dtf='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
 alias ls='lsd --color=always'
 alias ll='ls -l'
 alias la='ls -a'
