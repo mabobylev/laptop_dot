@@ -51,16 +51,97 @@ export LESS_TERMCAP_so=$'\e[01;34m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;34m'
 
-alias dtf='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
-alias ls='lsd --color=always'
-alias ll='ls -l'
-alias la='ls -a'
-alias grep='rg --color=always'
-alias cat='bat'
-
 PS1='[\u@\h \W]\$ '
 
 export PATH="${PATH}:${HOME}/.local/bin/"
+
+# Function for creating a new directory and entering it
+mcd() {
+	mkdir -p "$@" && cd "$@"
+}
+
+# Function for git auto commit and push
+gcp() {
+	read -r -p "Commit message: " commit_msg
+	git commit -a -m "$commit_msg"
+	git push
+}
+
+# Function for rsync copy
+cpr() {
+	rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 "$@"
+}
+
+# Function for rsync move
+mvr() {
+	rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 --remove-source-files "$@"
+}
+
+# function to check if a command exists
+command_exist() {
+	command -v "$1" >/dev/null 2>&1
+}
+
+alias cpv='rsync -ah --info=progress2'
+# check if lsd or eza is installed
+
+if command_exist lsd; then
+	# alias ls='eza --icons=always'
+	alias ls='lsd --color=always'
+else
+	alias ls='ls --color=always'
+fi
+alias la='ls -a'
+alias ll='ls -l'
+alias lt='ls --tree --level=1 --no-time --no-user --no-permissions'
+# check if ripgrep is installed
+if command_exist rg; then
+	alias grep='rg'
+else
+	alias grep='grep --color=auto'
+fi
+# check if bat is installed
+if command_exist bat; then
+	alias cat='bat -n'
+fi
+# check if nvim is installed
+if command_exist nvim; then
+	alias v='nvim'
+	alias vi='nvim'
+fi
+alias svi='sudo vi'
+alias mkdir='mkdir -p'
+alias pbcopy='xsel --clipboard --input'
+alias pbpaste='xsel --clipboard --output'
+#alias pbcopy='xclip -selection clipboard'
+#alias pbpaste='xclip -selection clipboard -o'
+
+# Alias's for archives
+alias mktar='tar -cvf'
+alias mkbz2='tar -cvjf'
+alias mkgz='tar -cvzf'
+alias untar='tar -xvf'
+alias unbz2='tar -xvjf'
+alias ungz='tar -xvzf'
+
+# Alias's for git
+alias gu='git add . && git commit -a -m "Update" && git push'
+alias gc='git clone'
+alias gp='git push'
+alias gl='git pull'
+alias gs='git status'
+
+# Alias for my dotfiles repos
+alias dtf='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
+
+# Alias's for paru or yay
+alias pkgm='yay'
+alias pkgi='yay --noconfirm --needed -S'
+alias pkgu='yay --noconfirm --needed -Syu'
+alias pkgs='yay -Ss'
+alias pkgc='yay --noconfirm -Scc'
+alias pkgr='yay -Rns'
+alias yupd='yay --noconfirm --needed -Syyu; yay --noconfirm -Scc'
 
 #######################################################
 # Useful settings to make the terminal better
