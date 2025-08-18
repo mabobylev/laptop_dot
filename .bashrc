@@ -11,7 +11,6 @@ stty -ixon
 #######################################################
 [[ -f /usr/share/bash-preexec/bash-preexec.sh ]] && source /usr/share/bash-preexec/bash-preexec.sh
 [[ -f /usr/share/bash-completion/bash_completion ]] && source /usr/share/bash-completion/bash_completion
-[[ -f /usr/share/bash-preexec/bash-preexec.sh ]] && source /usr/share/bash-preexec/bash-preexec.sh
 [[ -f /usr/share/doc/pkgfile/command-not-found.bash ]] && source /usr/share/doc/pkgfile/command-not-found.bash
 # [[ -f /usr/share/bash-completion/completions/zellij ]] && source /usr/share/bash-completion/completions/zellij
 # [[ -f $HOME/.bash.d/bash_cht.sh ]] && source $HOME/.bash.d/bash_cht.sh
@@ -57,57 +56,57 @@ export PATH="${PATH}:${HOME}/.local/bin/"
 
 # Function for creating a new directory and entering it
 mcd() {
-	mkdir -p "$@" && cd "$@"
+  mkdir -p "$@" && cd "$@"
 }
 
 # Function for git auto commit and push
 gcp() {
-	read -r -p "Commit message: " commit_msg
-	git commit -a -m "$commit_msg"
-	git push
+  read -r -p "Commit message: " commit_msg
+  git commit -a -m "$commit_msg"
+  git push
 }
 
 # Function for rsync copy
 cpr() {
-	rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 "$@"
+  rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 "$@"
 }
 
 # Function for rsync move
 mvr() {
-	rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 --remove-source-files "$@"
+  rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 --remove-source-files "$@"
 }
 
 # function to check if a command exists
 command_exist() {
-	command -v "$1" >/dev/null 2>&1
+  command -v "$1" >/dev/null 2>&1
 }
 
 alias cpv='rsync -ah --info=progress2'
 # check if lsd or eza is installed
 
 if command_exist lsd; then
-	# alias ls='eza --icons=always'
-	alias ls='lsd --color=always'
+  # alias ls='eza --icons=always'
+  alias ls='lsd --color=always'
 else
-	alias ls='ls --color=always'
+  alias ls='ls --color=always'
 fi
 alias la='ls -a'
 alias ll='ls -l'
 alias lt='ls --tree --level=1 --no-time --no-user --no-permissions'
 # check if ripgrep is installed
 if command_exist rg; then
-	alias grep='rg'
+  alias grep='rg'
 else
-	alias grep='grep --color=auto'
+  alias grep='grep --color=auto'
 fi
 # check if bat is installed
 if command_exist bat; then
-	alias cat='bat -n'
+  alias cat='bat -n'
 fi
 # check if nvim is installed
 if command_exist nvim; then
-	alias v='nvim'
-	alias vi='nvim'
+  alias v='nvim'
+  alias vi='nvim'
 fi
 alias svi='sudo vi'
 alias mkdir='mkdir -p'
@@ -148,6 +147,6 @@ alias yupd='yay --noconfirm --needed -Syyu; yay --noconfirm -Scc'
 #######################################################
 [[ -f ~/.dir_colors ]] && eval "$(dircolors ~/.dir_colors)"
 eval "$(fzf --bash)"
-eval "$(zoxide init bash)"
 eval "$(thefuck --alias)"
 eval "$(starship init bash)"
+eval "$(zoxide init bash)"

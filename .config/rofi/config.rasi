@@ -1,0 +1,23 @@
+configuration{
+    font: "JetBrainsMono Nerd Font 14";
+	line-margin: 10;
+    show-icons: true;
+    icon-theme: "Papirus-dark";
+    terminal: "kitty";
+    drun-display-format: "{icon} {name}";
+    location: 0;
+    disable-history: false;
+    hide-scrollbar: true;
+    display-drun: "   Apps ";
+    display-run: "   Run ";
+    display-window: "   window";
+    display-Network: " 󰤨  Network";
+    sidebar-mode: true;
+}
+
+@theme "rounded-nord"
+
+listview {
+	lines: 6;
+	columns: 2;
+}
