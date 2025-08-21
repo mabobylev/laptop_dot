@@ -1,3 +1,3 @@
 function dtf
-    /usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME" $argv
+    /usr/bin/git --git-dir="$HOME/.cfg/" --work-tree="$HOME" $argv
 end

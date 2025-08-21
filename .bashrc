@@ -131,7 +131,7 @@ alias gl='git pull'
 alias gs='git status'
 
 # Alias for my dotfiles repos
-alias dtf='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
+alias dtf='/usr/bin/git --git-dir="$HOME/.cfg/" --work-tree="$HOME"'
 
 # Alias's for paru or yay
 alias pkgm='yay'
