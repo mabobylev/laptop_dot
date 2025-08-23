@@ -12,8 +12,8 @@ set $term foot
 # Your preferred application launcher
 # set $menu wmenu-run -i -nb '#1f222d' -nf '#81a1c1' -sb '#81a1c1' -sf '#1f222d' -fn 'JetBrainsMono Nerd Font:bold:pixelsize=9'
 set $menu wmenu-run 
-set $browser luakit
-set $runner wofi --show drun
+set $browser firefox
+set $runner rofi -show drun
 set $fmanager thunar
 
 ### Output configuration
@@ -84,6 +84,7 @@ output eDP-1 resolution 1366x768 position 1366,0
 #
     # Start a terminal
     bindsym $mod+Return exec $term
+    bindsym MOD1+Return exec kitty -e /usr/bin/fish
 
     # Kill focused window
     bindsym $mod+Shift+q kill

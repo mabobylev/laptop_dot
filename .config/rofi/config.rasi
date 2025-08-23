@@ -1,8 +1,8 @@
 configuration{
-    font: "JetBrainsMono Nerd Font 14";
-	line-margin: 10;
+    font: "Ubuntu Nerd Font Condensed 14";
+	  line-margin: 10;
     show-icons: true;
-    icon-theme: "Papirus-dark";
+    icon-theme: "Nordzi-dark";
     terminal: "kitty";
     drun-display-format: "{icon} {name}";
     location: 0;
@@ -10,8 +10,9 @@ configuration{
     hide-scrollbar: true;
     display-drun: "   Apps ";
     display-run: "   Run ";
-    display-window: "   window";
-    display-Network: " 󰤨  Network";
+    display-window: "   Window";
+    display-network: " 󰤨  Network";
+    display-filebrowser: "   Files";
     sidebar-mode: true;
 }
 
