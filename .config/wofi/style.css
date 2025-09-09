@@ -12,13 +12,13 @@
 /* параметры для окна */
 window {
   background-color: @bg;
-  /* border-radius: 15px; */
+  border-radius: 15px;
 }
 
 /* параметры для окна ввода */
 #input {
-  margin: 10 15 10 15px;
-  padding: 5;
+  margin: 10px 15px 10px 15px;
+  padding: 5px;
   border-radius: 5px;
   border: none;
   border-bottom: 0px solid @fg_2;
@@ -59,7 +59,7 @@ window {
 #entry:selected {
   border-radius: 5px;
   background-color: @fg_2;
-  font-color: @bg;
+  color: @bg;
 }
 
 /* параметры выделенного текста */

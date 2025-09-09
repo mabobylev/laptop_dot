@@ -134,13 +134,19 @@ alias gs='git status'
 alias dtf='/usr/bin/git --git-dir="$HOME/.cfg/" --work-tree="$HOME"'
 
 # Alias's for paru or yay
-alias pkgm='yay'
-alias pkgi='yay --noconfirm --needed -S'
-alias pkgu='yay --noconfirm --needed -Syu'
-alias pkgs='yay -Ss'
-alias pkgc='yay --noconfirm -Scc'
-alias pkgr='yay -Rns'
-alias yupd='yay --noconfirm --needed -Syyu; yay --noconfirm -Scc'
+if command_exist paru; then
+  alias pkgm='paru'
+elif command_exist yay; then
+  alias pkgm='yay'
+else
+  alias pkgm='pacman'
+fi
+alias pkgi='pkgm --noconfirm --needed -S'
+alias pkgu='pkgm --noconfirm --needed -Syu'
+alias pkgs='pkgm -Ss'
+alias pkgc='pkgm --noconfirm -Scc'
+alias pkgr='pkgm -Rns'
+alias pkgd='pkgm --noconfirm --needed -Syyu; pkgm --noconfirm -Scc'
 
 #######################################################
 # Useful settings to make the terminal better
