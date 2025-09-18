@@ -1,4 +1,6 @@
+########################################
 ### Variables
+########################################
 #
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
@@ -16,7 +18,9 @@ set $browser firefox
 set $runner rofi -show drun
 set $fmanager thunar
 
+########################################
 ### Output configuration
+########################################
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1366x768.png fill
@@ -32,7 +36,9 @@ output eDP-1 resolution 1366x768 position 1366,0
 # Обои
 output * bg "$(find ~/Pictures/Wallpapers/|shuf -n1)" fill
 
+########################################
 ### Idle configuration
+########################################
 #
 # Example configuration:
 #
@@ -45,7 +51,9 @@ output * bg "$(find ~/Pictures/Wallpapers/|shuf -n1)" fill
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
+########################################
 ### Input configuration
+########################################
 #
 # Example configuration:
 #
@@ -73,7 +81,9 @@ output * bg "$(find ~/Pictures/Wallpapers/|shuf -n1)" fill
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
+########################################
 #--- РАСКЛАДКА КЛАВИАТУРЫ -------------------------------------------------------------
+########################################
     input * {
     	xkb_layout us,ru
     	xkb_options grp:caps_toggle,grp_led:caps
@@ -82,7 +92,9 @@ output * bg "$(find ~/Pictures/Wallpapers/|shuf -n1)" fill
     #NumLock при старте системы
     input * xkb_numlock enabled
 
+########################################
 ### Key bindings
+########################################
 #
 # Basics:
 #
@@ -253,7 +265,9 @@ bindsym $mod+r mode "resize"
     bindsym Print exec grim
 
 #
+########################################
 # Status Bar:
+########################################
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
@@ -273,7 +287,9 @@ bar {
     }
 }
 
+########################################
 #--- ДЕКОРАЦИИ ОКОН -------------------------------------------------------------------
+########################################
 
 # Скругления
 corner_radius 10
@@ -282,14 +298,14 @@ smart_corner_radius enable
 # Блюр
 blur on
 blur_xray on
-blur_passes 5
-blur_radius 5
+blur_passes 2
+blur_radius 2
 
 # Тени
-shadows on
-shadows_on_csd on
-shadow_blur_radius 5
-shadow_color #0000007F
+# shadows on
+# shadows_on_csd on
+# shadow_blur_radius 5
+# shadow_color #0000007F
 
 # Затемнение неактивных окон
 default_dim_inactive 0.5
@@ -297,8 +313,8 @@ dim_inactive_colors.unfocused #000000FF
 dim_inactive_colors.urgent #900000FF
 
 # Гапсы
-gaps inner 5 
-gaps outer 5
+gaps inner 3
+gaps outer 3
 smart_gaps off
 
 # Толщина рамок для обычных и плавающих окон
@@ -310,9 +326,11 @@ for_window [tiling] border pixel
 for_window [floating] border pixel
 
 # Отключение рамки если открыто одно окно
-smart_borders off
+smart_borders on
 
+########################################
 #--- УКРАШАТЕЛЬСТВА -------------------------------------------------------------------
+########################################
 
 # Шрифт (походу для заголовков)
 font pango:JetBrainsMono Nerd Font 10
@@ -341,7 +359,7 @@ seat seat0 xcursor_theme "Nordzy-cursors"
 #
 # Запуск на определенном воркспейсе
 assign [app_id="foot"] workspace 1
-assign [app_id="firefox"] workspace 2
+assign [app_id="(?i)zen*"] workspace 2
 assign [app_id="luakit"] workspace 2
 assign [class="Yandex-browser"] workspace 2
 assign [app_id="thunar"] workspace 3
@@ -358,7 +376,7 @@ for_window [app_id="org.inkscape.Inkscape"] focus
 for_window [app_id="reaper"] focus
 for_window [app_id="rhythmbox"] focus
 for_window [app_id="mpv"] focus
-for_window [app_id="firefox"] focus
+for_window [app_id="(?i)zen*"] focus
 for_window [app_id="luakit"] focus
 for_window [class="Yandex-browser"] focus
 for_window [app_id="org.telegram.desktop"] focus 
@@ -367,7 +385,7 @@ for_window [app_id="blueman-manager"] focus
 # Запуск в плавающем режиме
 for_window [app_id="thunar"] floating enable
 for_window [app_id="galculator"] floating enable
-for_window [app_id="firefox"] floating enable, border none, move position center
+for_window [app_id="zen"] floating enable, border none, move position center
 for_window [app_id="luakit"] floating enable, move position center
 for_window [class="yandex-browser"] floating enable, border none, resize set 1280 680, move position center
 for_window [app_id="org.telegram.desktop"] floating enable, border none, resize set 400 680, move left 480px, move down 10px
@@ -396,11 +414,14 @@ for_window [window_role="About"] floating enable
 for_window [title="File Operation Progress"] floating enable, border pixel 1, sticky enable, resize set width 40 ppt height 30 ppt
 
 # Сатурация
-for_window [app_id="foot"] saturation 2.0
+# for_window [app_id="foot"] saturation 2.0
 # Mark xwayland apps with an [X]:
 for_window [shell="xwayland"] title_format "<span>[X] %title</span>"
 
+########################################
 # Запуск программ при старте SWAY
+########################################
+
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec_always /usr/lib/xdg-desktop-portal -r & /usr/lib/xdg-desktop-portal-wlr -r
 exec_always ~/.local/bin/import_gsettings.sh
@@ -413,4 +434,6 @@ exec {
 }
 # exec XDG_CURRENT_DESKTOP=gnome telegram-desktop
 
+########################################
 include /home/bma/.config/sway/config.d/*
+########################################
