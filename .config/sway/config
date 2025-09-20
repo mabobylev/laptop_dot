@@ -15,7 +15,7 @@ set $term foot
 # Your preferred application launcher
 set $menu dmenu_run -i -nb '#1f222d' -nf '#81a1c1' -sb '#81a1c1' -sf '#1f222d' -fn 'JetBrainsMono Nerd Font:bold:pixelsize=18'
 # set $menu wmenu-run 
-set $browser firefox
+set $browser yandex-browser
 set $runner rofi -show drun
 set $fmanager thunar
 
@@ -434,8 +434,8 @@ exec wl-paste -t text --watch clipman store --no-persist
 exec dex -ae Sway
 exec autotiling
 exec {
-  swaymsg 'workspace 1; exec foot'
-  swaymsg 'workspace 2; exec zen'
+  swaymsg 'workspace 1; exec $term'
+  swaymsg 'workspace 2; exec $browser'
 }
 # exec XDG_CURRENT_DESKTOP=gnome telegram-desktop
 
