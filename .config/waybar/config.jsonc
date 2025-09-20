@@ -14,7 +14,14 @@
 	"modules-center": ["sway/scratchpad", "sway/workspaces", "sway/mode"],
 	"modules-right": ["custom/cmus", "sway/language", "pulseaudio", "battery", "backlight", "clock", "tray", "custom/power"],
 
-
+	"custom/menu": {
+	"format": "{icon}",
+	"format-icons": {"default": [""]},
+	"on-click": "pkill wofi || wofi --show drun --hide-scroll",
+	"escape": true,
+	"tooltip": false
+	},
+	
 	"cpu": {
 	"format": " {usage}%",
 	"tooltip": false
@@ -31,14 +38,6 @@
 		"rewrite": {
 		},
 		"tooltip": false,
-	},
-
-	"custom/menu": {
-	"format": "{icon}",
-	"format-icons": {"default": [""]},
-	"on-click": "pkill wofi || wofi --show drun --hide-scroll",
-	"escape": true,
-	"tooltip": false
 	},
 
 	"sway/workspaces": {
@@ -86,12 +85,6 @@
 	"tooltip": false
 	},
 
-	"tray": {
-	"icon-size": 16,
-	"spacing": 10,
-	"tooltip": false
-	},
-
 	// "custom/weather": {
 	// "format": "{}",
 	// "interval": 60,
@@ -124,7 +117,7 @@
 
   "backlight": {
       // "device": "acpi_video1",
-      "format": "{icon}, {percent}%",
+      "format": "{icon} {percent}%",
       "format-icons": ["", "", "", "", "", "", "", "", ""]
   },
 
@@ -135,14 +128,20 @@
           "critical": 15
       },
       "format": "{icon} {capacity}%",
-      "format-full": "{capacity}% {icon}",
-      "format-charging": "{capacity}% 󰂄",
-      "format-plugged": "{capacity}% ",
-      "format-alt": "{time} {icon}",
+      "format-full": "{icon} {capacity}%",
+      "format-charging": "󰂄 {capacity}%",
+      "format-plugged": " {capacity}%",
+      "format-alt": "{icon} {time}",
       // "format-good": "", // An empty format will hide the module
       // "format-full": "",
       "format-icons": ["", "", "", "", ""]
   },
+
+	"tray": {
+	"icon-size": 16,
+	"spacing": 10,
+	"tooltip": false
+	},
 
 	"custom/power": {
 	"format": "{icon}",
@@ -151,4 +150,3 @@
 	"tooltip": false
 	},
 }
-
