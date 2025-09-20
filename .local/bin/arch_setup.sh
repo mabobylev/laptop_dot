@@ -14,15 +14,15 @@ sudo localectl --no-convert set-x11-keymap us,ru "" pc105 grp:shift_toggle,termi
 
 ### Checking for git package
 if ! type -p git &>/dev/null; then
-  printf "Устанавливаю GIT ...\n"
-  sudo pacman --needed --noconfirm -S git
+	printf "Устанавливаю GIT ...\n"
+	sudo pacman --needed --noconfirm -S git
 fi
 
 ### Prepare for installation
 # Checking for paru package
 if ! type -p paru &>/dev/null; then
-  printf "Устанавливаю paru ...\n"
-  git clone https://aur.archlinux.org/paru.git $git_dir && cd $git_dir/paru && makepkg -si
+	printf "Устанавливаю paru ...\n"
+	git clone https://aur.archlinux.org/paru.git $git_dir && cd $git_dir/paru && makepkg -si
 fi
 
 ### Installation applications from the list
@@ -51,9 +51,3 @@ ln -sf /usr/share/fontconfig/conf.avail/10-nerd-font-symbols.conf /etc/fonts/con
 gsettings set org.cinnamon.desktop.default-applications.terminal exec alacritty
 gsettings set org.gnome.desktop.default-applications.terminal exec alacritty
 dconf update
-
-# Авторегулировка яркости экрана при включении/отключении питания
-# Создать файл /etc/udev/rules.d/backlight.rules со следующим содержимым
-# SUBSYSTEM=="power_supply", ENV{POWER_SUPPLY_ONLINE}=="1", RUN+="/usr/bin/brightnessctl set 255"
-# SUBSYSTEM=="power_supply", ENV{POWER_SUPPLY_ONLINE}=="0", RUN+="/usr/bin/brightnessctl set 128"
-# sudo udevadm control -R - применяем изменения
