@@ -2,12 +2,12 @@
 
 font="Ubuntu Nerd Font:bold:pixelsize=18"
 
-if [ -n "$(pidof sway)" ]; then
+if [[ -n "$(pidof sway)" ]]; then
   locker="swaylock"
 fi
 
-if [ -n "$(pidof i3)" ]; then
-  locker="i3-lock"
+if [[ -n "$(pidof i3)" ]]; then
+  locker="i3lock"
 fi
 
 # Функция системных событий (завершение процессов, блокировка экрана, перезагрузка, выключение)
