@@ -15,7 +15,7 @@ set $term foot
 # Your preferred application launcher
 set $menu dmenu_run -i -nb '#1f222d' -nf '#81a1c1' -sb '#81a1c1' -sf '#1f222d' -fn 'JetBrainsMono Nerd Font:bold:pixelsize=18'
 # set $menu wmenu-run 
-set $browser yandex-browser
+set $browser yandex-browser-stable
 set $runner rofi -show drun
 set $fmanager thunar
 
@@ -35,7 +35,7 @@ output eDP-1 resolution 1366x768 position 1366,0
 # output eDP-1 allow_tearing yes
 # output * max_render_time off
 # Обои
-output * bg "$(find $HOME/.local/background/wallpapers/|shuf -n1)" fill
+output * bg "$(find $HOME/.local/backgrounds/wallpapers/|shuf -n1)" fill
 
 ########################################
 ### Idle configuration

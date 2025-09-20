@@ -2,12 +2,20 @@
 
 font="Ubuntu Nerd Font:bold:pixelsize=18"
 
+if [ -n "$(pidof sway)" ]; then
+  locker="swaylock"
+fi
+
+if [ -n "$(pidof i3)" ]; then
+  locker="i3-lock"
+fi
+
 # Функция системных событий (завершение процессов, блокировка экрана, перезагрузка, выключение)
 sys_menu() {
   case "$(printf "kill\nlock\nlogout\nreboot\nshutdown" | dmenu -i -fn "$font" -c -l 5)" in
   kill) ps -u "$USER" -o pid,comm,%cpu,%mem | dmenu -i -fn "$font" -c -l 10 -p Kill: | awk '{print $1}' | xargs -r kill ;;
     #	lock) slock systemctl suspend -i ;;
-  lock) i3lock -i "$HOME/.local/backgrounds/wm-lock.png" ;;
+  lock) $locker -i "$HOME/.local/backgrounds/wm-lock.png" ;;
   logout) i3-msg exit ;;
   reboot) systemctl reboot -i ;;
   shutdown) shutdown now ;;
@@ -64,6 +72,6 @@ notes)
   ;;
 esac
 
-unset "$folder", "$font"
+unset "$folder", "$font", "locker"
 
 #vim: ft=sh
