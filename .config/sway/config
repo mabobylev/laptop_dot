@@ -4,6 +4,7 @@
 #
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
+set $alt Mod1
 # Home row direction keys, like vim
 set $left h
 set $down j
@@ -12,8 +13,8 @@ set $right l
 # Your preferred terminal emulator
 set $term foot
 # Your preferred application launcher
-# set $menu wmenu-run -i -nb '#1f222d' -nf '#81a1c1' -sb '#81a1c1' -sf '#1f222d' -fn 'JetBrainsMono Nerd Font:bold:pixelsize=9'
-set $menu wmenu-run 
+set $menu dmenu_run -i -nb '#1f222d' -nf '#81a1c1' -sb '#81a1c1' -sf '#1f222d' -fn 'JetBrainsMono Nerd Font:bold:pixelsize=18'
+# set $menu wmenu-run 
 set $browser firefox
 set $runner rofi -show drun
 set $fmanager thunar
@@ -34,7 +35,7 @@ output eDP-1 resolution 1366x768 position 1366,0
 # output eDP-1 allow_tearing yes
 # output * max_render_time off
 # Обои
-output * bg "$(find ~/Pictures/Wallpapers/|shuf -n1)" fill
+output * bg "$(find $HOME/.local/background/wallpapers/|shuf -n1)" fill
 
 ########################################
 ### Idle configuration
@@ -100,16 +101,17 @@ output * bg "$(find ~/Pictures/Wallpapers/|shuf -n1)" fill
 #
     # Start a terminal
     bindsym $mod+Return exec $term
-    bindsym MOD1+Return exec kitty -e /usr/bin/fish
+    bindsym $alt+Return exec kitty -e /usr/bin/fish
 
     # Kill focused window
     bindsym $mod+Shift+q kill
 
     # Start your launcher
-    bindsym $mod+Shift+d exec $menu
-    bindsym $mod+d exec $runner
-    bindsym $mod+b exec $browser
-    bindsym $mod+n exec $fmanager
+    bindsym --to-code $mod+Shift+d exec $menu
+    bindsym --to-code $mod+d exec $runner
+    bindsym --to-code $mod+b exec $browser
+    bindsym --to-code $mod+n exec $fmanager
+    bindsym --to-code $alt+Control+p exec pavucontrol
 
 
     # Drag floating windows by holding down $mod and left mouse button.
@@ -279,12 +281,12 @@ bar {
     # status_command i3status
     swaybar_command waybar
 
-    colors {
+    # colors {
     #     statusline #ffffff
     #     background #282828E6
     #     inactive_workspace #282936BF #282936BF #5c5c5c
     #     focused_workspace #83a598 #458588 #eddbb2
-    }
+    # }
 }
 
 ########################################
@@ -362,7 +364,7 @@ assign [app_id="foot"] workspace 1
 assign [app_id="(?i)zen*"] workspace 2
 assign [app_id="hiddify"] workspace 2
 assign [app_id="luakit"] workspace 2
-assign [class="Yandex-browser"] workspace 2
+assign [app_id="(?i)yandex*"] workspace 2
 assign [app_id="thunar"] workspace 3
 assign [app_id="org.inkscape.Inkscape"] workspace 5
 assign [app_id="org.telegram.desktop"] workspace 4
@@ -380,7 +382,7 @@ for_window [app_id="mpv"] focus
 for_window [app_id="(?i)zen*"] focus
 for_window [app_id="hiddify"] focus
 for_window [app_id="luakit"] focus
-for_window [class="Yandex-browser"] focus
+for_window [app_id="(?i)yandex*"] focus
 for_window [app_id="org.telegram.desktop"] focus 
 for_window [app_id="blueman-manager"] focus
 
@@ -389,7 +391,7 @@ for_window [app_id="thunar"] floating enable
 for_window [app_id="galculator"] floating enable
 for_window [app_id="zen"] floating enable, border none, move position center
 for_window [app_id="luakit"] floating enable, move position center
-for_window [class="yandex-browser"] floating enable, border none, resize set 1280 680, move position center
+for_window [app_id="(?i)yandex*"] floating enable, border none, resize set 1280 680, move position center
 for_window [app_id="org.telegram.desktop"] floating enable, border none, resize set 400 680, move left 480px, move down 10px
 for_window [app_id="hiddify"] floating enable, border none, move position center
 # for_window [title="cmus"] floating enable, resize set 700px 400px, move right 210px, move up 115px
@@ -433,7 +435,7 @@ exec dex -ae Sway
 exec autotiling
 exec {
   swaymsg 'workspace 1; exec foot'
-  swaymsg 'workspace 2; exec yandex-browser-stable'
+  swaymsg 'workspace 2; exec zen'
 }
 # exec XDG_CURRENT_DESKTOP=gnome telegram-desktop
 
