@@ -1,11 +1,14 @@
 # Default value
-export VISUAL=nvim
+export EDITOR=nvim
+export VISUAL=$EDITOR
 export SUDO_EDITOR=nvim
 export GIT_EDITOR=nvim
 export PATH="$PATH:$HOME/.local/bin"
 export DOTBARE_DIR="$HOME/.cfg"
 export DOTBARE_TREE="$HOME"
 export DOTBARE_BACKUP="${XDG_DATA_HOME:-$HOME/.local/share}/dotbare"
+# By default this value uses fall back (git config core.pager -> cat)
+# export DOTBARE_DIFF_PAGER="diff-so-fancy --line-numbers"
 
 # Use XToolkit in java applications
 [ -z "$AWT_TOOLKIT" ] && export AWT_TOOLKIT="XToolkit"
