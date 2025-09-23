@@ -28,10 +28,10 @@ fi
 # check if nvim is installed
 if command -v nvim &>/dev/null; then
   alias v='nvim'
-  alias vi='nvim'
+  # alias vim='nvim'
   n() { if [ "$#" -eq 0 ]; then nvim .; else nvim "$@"; fi; }
 fi
-alias svi='sudo vi'
+alias sv='sudo v'
 alias mkdir='mkdir -p'
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
