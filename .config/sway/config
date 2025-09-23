@@ -325,7 +325,7 @@ default_floating_border pixel
 
 # Размер рамок окон
 for_window [tiling] border pixel
-for_window [floating] border pixel
+# for_window [floating] border pixel
 
 # Отключение рамки если открыто одно окно
 smart_borders on
@@ -361,7 +361,7 @@ seat seat0 xcursor_theme "Nordzy-cursors"
 #
 # Запуск на определенном воркспейсе
 assign [app_id="foot"] workspace 1
-assign [app_id="(?i)zen*"] workspace 2
+assign [app_id="zen"] workspace 2
 assign [app_id="hiddify"] workspace 2
 assign [app_id="luakit"] workspace 2
 assign [app_id="(?i)yandex*"] workspace 2
@@ -379,7 +379,7 @@ for_window [app_id="org.inkscape.Inkscape"] focus
 for_window [app_id="reaper"] focus
 for_window [app_id="rhythmbox"] focus
 for_window [app_id="mpv"] focus
-for_window [app_id="(?i)zen*"] focus
+for_window [app_id="zen"] focus
 for_window [app_id="hiddify"] focus
 for_window [app_id="luakit"] focus
 for_window [app_id="(?i)yandex*"] focus
