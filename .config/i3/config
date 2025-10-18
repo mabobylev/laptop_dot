@@ -269,7 +269,7 @@ bindsym $mod+r mode "resize"
 bar {
         # height 25
         position top
-        padding 2px 0
+        # padding 2px 0
         strip_workspace_numbers yes
         binding_mode_indicator yes
         separator_symbol "  "
