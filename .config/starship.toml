@@ -63,7 +63,7 @@ $time\
 [ ](fg:#33658A)\
 $character"""
 
-command_timeout = 5000
+# command_timeout = 5000
 # Disable the blank line at the start of the prompt
 # add_newline = false
 
