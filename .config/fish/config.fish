@@ -23,4 +23,4 @@ set fzf_preview_file_cmd bat -n --color=always
 set fzf_fd_opts --hidden --max-depth 5
 
 eval (zoxide init fish | source)
-eval (starship init fish | source)
+# eval (starship init fish | source)

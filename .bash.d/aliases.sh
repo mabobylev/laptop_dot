@@ -63,6 +63,7 @@ alias logs="sudo find /var/log -type f -exec file {} \; | grep 'text' | cut -d' 
 alias cris='curl -fsSL christitus.com/linux | sh'
 
 # Alias's for package manager
+pacman='sudo pacman'
 # check if yay is installed
 if command -v paru &>/dev/null; then
   alias pkgm='paru'
@@ -71,7 +72,7 @@ elif command -v yay &>/dev/null; then
   # yay -Fy >/dev/null 2>&1
   alias yayf="yay -Slq | fzf --multi --preview 'yay -Sii {1}' --preview-window right:70% | xargs -ro yay -S"
 else
-  alias pkgm='sudo pacman'
+  alias pkgm='pacman'
 fi
 alias pkgi='pkgm --noconfirm --needed -S'
 alias pkgu='pkgm --noconfirm --needed -Syu'

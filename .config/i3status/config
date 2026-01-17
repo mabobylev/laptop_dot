@@ -8,15 +8,15 @@
 
 general {
         colors = true
-        interval = 1
+        interval = 3
         output_format = "i3bar" # формат вывода, устанавливаем i3bar (JSON)
 }
 
 # order += "wireless _first_"
 # order += "ethernet _first_"
-# order += "disk /"
+order += "disk /"
 # order += "load"
-# order += "memory"
+order += "memory"
 order += "cpu_usage"
 order += "battery all"
 order += "volume master"
@@ -105,5 +105,5 @@ volume master {
 }
 
 tztime local {
-        format = "  %d-%m %a   %H:%M"
+        format = "  %d-%m %a    %H:%M"
 }

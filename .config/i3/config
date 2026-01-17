@@ -325,8 +325,8 @@ assign [instance="^(?i)libreoffice|^(?i)soffice"] $ws9
 for_window [class="(?i)yad.*|^(?i)steam.*|^(?i)port-.*|^(?i)lgc.*"] floating enable, focus
 # for_window [class="URxvt" instance="^spaceterm$"] floating enable, border normal
 # for_window [class="firefox" instance="^mail.google.com$"] floating enable, focus
-for_window [class="(?i)zen"] border none, floating enable, focus, move position center
-for_window [class="(?i)yandex.*"] floating enable, focus, move position center
+for_window [class="(?i)firefox"] focus
+for_window [class="(?i)yandex.*"] focus
 for_window [class="(?i)luakit"] border none, floating enable, move position center
 for_window [class="(?i)telegram"] floating enable
 for_window [class="(?i)galculator"] floating enable, resize set 680 280, move position center

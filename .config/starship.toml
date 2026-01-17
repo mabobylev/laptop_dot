@@ -59,13 +59,15 @@ $php\
 [](fg:#86BBD8 bg:#06969A)\
 $docker_context\
 [](fg:#06969A bg:#33658A)\
-$time\
+$cmd_duration\
 [ ](fg:#33658A)\
 $character"""
 
 # command_timeout = 5000
 # Disable the blank line at the start of the prompt
 # add_newline = false
+
+scan_timeout = 50
 
 [character]
 success_symbol = "[➜ ](bold green)"
@@ -168,10 +170,14 @@ format = '[ $symbol ($version) ]($style)'
 [php]
 symbol = ""
 style = "bg:#86BBD8 fg:#33658A"
-format = '[[ $symbol ($version) ]($style)'
+format = '[ $symbol ($version) ]($style)'
 
 [time]
 disabled = false
 time_format = "%R"              # Hour:Minute Format
 style = "bg:#33658A"
 format = '[   $time ]($style)'
+
+[cmd_duration]
+style = "bg:#33658A"
+format = '[ 󰔟 $duration ]($style)'
